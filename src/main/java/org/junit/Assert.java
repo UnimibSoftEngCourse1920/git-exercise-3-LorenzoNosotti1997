@@ -121,6 +121,10 @@ public class Assert {
         }
     }
 
+    public static <Object> void assertGreaterThan(Object o1, Object o2, java.util.Comparator<Object> comparator){
+        assertTrue(comparator.compare(o1, o2)>0);
+    }
+    
     private static boolean equalsRegardingNull(Object expected, Object actual) {
         if (expected == null) {
             return actual == null;

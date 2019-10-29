@@ -10,12 +10,13 @@ import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Comparator;
 
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
@@ -27,12 +28,12 @@ import org.junit.internal.ArrayComparisonFailure;
  * Tests for {@link org.junit.Assert}
  */
 public class AssertionTest {
-// If you want to use 1.4 assertions, they will be reported correctly.
-// However, you need to add the -ea VM argument when running.
+    // If you want to use 1.4 assertions, they will be reported correctly.
+    // However, you need to add the -ea VM argument when running.
 
-// @Test (expected=AssertionError.class) public void error() {
-//      assert false;
-//  }
+    // @Test (expected=AssertionError.class) public void error() {
+    //      assert false;
+    //  }
 
     private static final String ASSERTION_ERROR_EXPECTED = "AssertionError expected";
 
@@ -144,7 +145,7 @@ public class AssertionTest {
                 new Object[]{true},
                 new Object[]{false},
                 "arrays first differed at element [0]; expected:<true> but was:<false>"
-        );
+                );
     }
 
     @Test
@@ -153,7 +154,7 @@ public class AssertionTest {
                 new Object[]{true, true},
                 new Object[]{true, false},
                 "arrays first differed at element [1]; expected:<true> but was:<false>"
-        );
+                );
     }
 
     @Test
@@ -163,7 +164,7 @@ public class AssertionTest {
                 new Object[]{true},
                 new Object[]{false},
                 "message: arrays first differed at element [0]; expected:<true> but was:<false>"
-        );
+                );
     }
 
     @Test
@@ -173,7 +174,7 @@ public class AssertionTest {
                 new Object[]{true, true},
                 new Object[]{true, false},
                 "message: arrays first differed at element [1]; expected:<true> but was:<false>"
-        );
+                );
     }
 
     @Test
@@ -378,6 +379,12 @@ public class AssertionTest {
             return;
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
+    }
+
+    @Test
+    public void testAssertGreaterThanPrimitive() {
+        Comparator<Integer> a = null;
+        Assert.assertGreaterThan(2, 1, a);
     }
 
     @Test
@@ -760,7 +767,7 @@ public class AssertionTest {
             assertEquals(new NullToString(), new NullToString());
         } catch (AssertionError e) {
             assertEquals("expected: org.junit.tests.assertion.AssertionTest$NullToString<null> but "
-                            + "was: org.junit.tests.assertion.AssertionTest$NullToString<null>",
+                    + "was: org.junit.tests.assertion.AssertionTest$NullToString<null>",
                     e.getMessage());
             return;
         }
@@ -945,8 +952,8 @@ public class AssertionTest {
         } catch (AssertionError error) {
             assertEquals(
                     "unexpected exception type thrown; expected:<org.junit.tests.assertion.AssertionTest.NestedException>"
-                    + " but was:<java.lang.NullPointerException>",
-                    error.getMessage());
+                            + " but was:<java.lang.NullPointerException>",
+                            error.getMessage());
             assertSame(npe, error.getCause());
             return;
         }
@@ -963,8 +970,8 @@ public class AssertionTest {
         } catch (AssertionError error) {
             assertEquals(
                     "unexpected exception type thrown; expected:<java.io.IOException>"
-                    + " but was:<org.junit.tests.assertion.AssertionTest$1>",
-                    error.getMessage());
+                            + " but was:<org.junit.tests.assertion.AssertionTest$1>",
+                            error.getMessage());
             assertSame(npe, error.getCause());
             return;
         }
@@ -978,7 +985,7 @@ public class AssertionTest {
         } catch (AssertionError error) {
             assertEquals(
                     "expected org.junit.tests.assertion.AssertionTest.NestedException to be thrown,"
-                    + " but nothing was thrown", error.getMessage());
+                            + " but nothing was thrown", error.getMessage());
             return;
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
