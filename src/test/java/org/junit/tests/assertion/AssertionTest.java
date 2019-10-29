@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Comparator;
 
+import com.lorenzonosotti.Auto;
+
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
 import org.junit.Test;
@@ -401,6 +403,14 @@ public class AssertionTest {
         Object[] objects1 = new Object[]{element};
         Object[] objects2 = new Object[]{element};
         assertArrayEquals("equal", objects1, objects2);
+    }
+    
+    @Test
+    public void testAssertGreaterThan(){
+        Auto a1=new Auto("Test", 5);
+        Auto a2=new Auto("Test", 4);
+
+        Assert.assertGreaterThan(a1, a2, Auto.getInstance());    
     }
 
     @Test
@@ -959,6 +969,7 @@ public class AssertionTest {
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
     }
+
 
     @Test
     public void assertThrowsUsesNameUponTypeMismatchWithAnonymousClass() {
