@@ -384,10 +384,52 @@ public class AssertionTest {
     }
 
     @Test
-    public void testAssertGreaterThanPrimitive() {
+    public void testAssertGreaterThanInt() {
         int o1=2;
         int o2=1;
-        assertGreaterThan(o2, o1);
+        assertGreaterThan(o1, o2);
+    }
+    
+    @Test
+    public void testAssertGreaterThanFloat() {
+        float o1= 2;
+        float o2=1;
+        assertGreaterThan(o1, o2);
+    }
+    
+    @Test
+    public void testAssertGreaterThanByte() {
+        byte o1=2;
+        byte o2=1;
+        assertGreaterThan(o1, o2);
+    }
+    
+    @Test
+    public void testAssertGreaterThanDouble() {
+        double o1=2;
+        double o2=1;
+        assertGreaterThan(o1, o2);
+    }
+    
+    @Test
+    public void testAssertGreaterThanChar() {
+        char o1='b';
+        char o2='a';
+        assertGreaterThan(o1, o2);
+    }
+    
+    @Test
+    public void testAssertGreaterThanShort() {
+        short o1=2;
+        short o2=1;
+        assertGreaterThan(o1, o2);
+    }
+    
+    @Test
+    public void testAssertGreaterThanLong() {
+        long o1=2;
+        long o2=1;
+        assertGreaterThan(o1, o2);
     }
 
 
